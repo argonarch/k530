@@ -14,7 +14,7 @@
 #define C_Y  RCTL(KC_Y)
 #define C_Z  RCTL(KC_Z)
 #define C_DEL RCTL_T(KC_BTN3)
-#define CS_B RCS(KC_BSLS)
+#define CS_B RCS_T(KC_BSLS)
 #define OLCAG OSM(MOD_LCTL | MOD_LALT | MOD_LGUI)
 #define OHYPR OSM(MOD_HYPR)
 #define RS_G RSFT_T(KC_GRV)
