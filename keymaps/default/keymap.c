@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               { KC_LCTL, KC_LGUI, C_ST,    XXXXXXX, XXXXXXX, XXXXXXX, FN_ENT,  XXXXXXX, XXXXXXX, KC_LCTL, KC_RGUI, XXXXXXX, KC_RALT, KC_NO,   }, },
               /*------------------------------------------------------------------------------------------------------------------------------*/
   [_FN]   = { { KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_AMPR, },
-              { KC_TAB,  KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U, KC_WH_L, _______, _______, _______, KC_LNUM, KC_PSCR, KC_HOME, KC_END,  KC_PIPE, },
+              { KC_BTN3, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U, KC_WH_L, _______, _______, _______, KC_LNUM, KC_PSCR, KC_HOME, KC_END,  KC_PIPE, },
               { KC_ESC,  KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, KC_WH_R, _______, _______, _______, KC_LCAP, KC_PGUP, KC_PGDN, XXXXXXX, _______, },
               { KC_LSFT, XXXXXXX, _______, C_PRIOR, C_NEXT,  _______, _______, _______, _______, _______, KC_INS,  KC_DEL,  XXXXXXX, _______, },
               { KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  XXXXXXX, XXXXXXX, KC_LCTL, KC_RGUI, XXXXXXX, KC_RALT, KC_NO,   }, },
