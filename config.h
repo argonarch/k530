@@ -49,5 +49,6 @@
 #include "config_led.h"
 #define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
-#define ONESHOT_TAP_TOGGLE 5 
-#define ONESHOT_TIMEOUT 5000 
+#define ONESHOT_TAP_TOGGLE 5
+#define ONESHOT_TIMEOUT 5000
+
