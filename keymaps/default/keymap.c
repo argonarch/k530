@@ -1,8 +1,9 @@
 #include QMK_KEYBOARD_H
 #include "../../variables.h"
 #define LC_F20 LCTL_T(KC_F20)
-#define LSA_P  RALT_T(KC_F21)
 #define W_SP   GUI_T(KC_SPC)
+
+#define S_CL  C_S_T(KC_F22)
 
 #define C_V  LCTL(KC_V)
 #define C_X  LCTL(KC_X)
@@ -24,12 +25,21 @@
 #define O_CAGS OSM(MOD_LCTL | MOD_LALT | MOD_LGUI | MOD_LSFT)
 
 #define FN_ENT LT(_FN,KC_ENT)
-#define FN_ALT LT(_FN,KC_LALT)
+#define FN_F21 LT(_FN,KC_F21)
+
 #define ESC_CON LT(_CON,KC_ESC)
 #define TAB_NUM LT(_NUM,KC_TAB)
 #define SYMBOL LT(_SYMBOL,KC_BSLS)
 #define QWERT TG(_QWERTY)
 #define N_ALT RALT(KC_N)
+#define A_ALT RALT(KC_A)
+#define O_ALT RALT(KC_O)
+#define E_ALT RALT(KC_E)
+#define U_ALT RALT(KC_U)
+#define I_ALT RALT(KC_I)
+
+#define QUE_ALT RALT(KC_SLASH)
+
 #define S_BSLS S(KC_BSLS)
 #define S_TAB S(KC_TAB)
 #define S_GR S(KC_GRAVE)
@@ -100,11 +110,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*    0        1        2        3        4        5        6        7        8        9        10       11       12       13      */
   [_BASE] = {
-    { C_X,     C_C,     C_V,     C_Z,     C_Y,     C_S,     KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, KC_SLSH, KC_EQL,  KC_TILD, },
+    { KC_LALT, C_C,     C_V,     C_Z,     C_Y,     C_X,     KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, KC_SLSH, KC_EQL,  KC_TILD, },
     { TAB_NUM, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_H,    KC_L,    KC_LBRC, KC_RBRC, SYMBOL,  },
     { ESC_CON, KC_A ,   KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_R,    KC_T,    KC_N,    KC_S,    KC_MINS, XXXXXXX, FN_ENT,  },
     { S_DEL,   XXXXXXX, KC_COLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    XXXXXXX, KC_BSPC, },
-    { LC_F20,  O_CAG,   FN_ALT,  XXXXXXX, XXXXXXX, XXXXXXX, W_SP,    XXXXXXX, XXXXXXX, C_SCLN,  O_CAGS,  XXXXXXX, KC_RSFT, QWERT,   }, },
+    { LC_F20,  O_CAG,   FN_F21,  XXXXXXX, XXXXXXX, XXXXXXX, W_SP,    XXXXXXX, XXXXXXX, C_SCLN,  O_CAGS,  XXXXXXX, KC_RSFT, QWERT,   }, },
     /*------------------------------------------------------------------------------------------------------------------------------*/
   [_QWERTY]={
     { KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SLSH, KC_EQL,  _______, },
@@ -122,9 +132,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*------------------------------------------------------------------------------------------------------------------------------*/
   [_CON]  = {
     { KC_F15,  KC_F13,  _______, _______, _______, _______, RGB_RMOD,RGB_MOD, RGB_TOG, RGB_SPD, RGB_SPI, RGB_VAD, RGB_VAI, _______, },
-    { KC_TAB,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, KC_KP_1, KC_KP_2, KC_KP_3, KC_PEQL, _______, RESET,   KC_RSFT, },
-    { _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_0, _______, XXXXXXX, KC_ENT,  },
-    { KC_LSFT, XXXXXXX, _______, C_PRIOR, C_NEXT,  _______, _______, _______, KC_KP_7, KC_KP_8, KC_KP_9, KC_PDOT, XXXXXXX, _______, },
+    { KC_TAB,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, KC_ENT,  KC_1,    KC_2,    KC_3,    KC_PEQL, _______, RESET,   KC_RSFT, },
+    { _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, KC_4,    KC_5,    KC_6,    KC_0,    _______, XXXXXXX, KC_ENT,  },
+    { KC_LSFT, XXXXXXX, _______, C_PRIOR, C_NEXT,  _______, _______, _______, KC_7,    KC_8,    KC_9,    KC_PDOT, XXXXXXX, _______, },
     { KC_LCTL, KC_RALT, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_LCTL, KC_RALT, XXXXXXX, KC_F16,  KC_RGUI, }, },
     /*------------------------------------------------------------------------------------------------------------------------------*/
   [_FN]   = {
@@ -132,13 +142,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     { KC_BTN3, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U, KC_WH_L, G(KC_F), G(KC_G), G(KC_C), G(KC_H), KC_PSCR, KC_HOME, KC_END,  KC_PIPE, },
     { KC_ESC,  KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, KC_WH_R, G(KC_D), G(KC_R), G(KC_T), G(KC_N), KC_PGUP, KC_PGDN, XXXXXXX, _______, },
     { KC_LSFT, XXXXXXX, A_LEFT,  A_RIGHT, C_PRIOR, C_NEXT,  G(KC_X), G(KC_B), G(KC_M), G(KC_W), KC_INS,  KC_DEL,  XXXXXXX, _______, },
-    { KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  XXXXXXX, XXXXXXX, KC_LCTL, KC_RALT, XXXXXXX, KC_F18,  KC_RGUI, }, },
+    { KC_LCTL, KC_LGUI, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  XXXXXXX, XXXXXXX, KC_LCTL, KC_RALT, XXXXXXX, KC_F18,  KC_RGUI, }, },
     /*------------------------------------------------------------------------------------------------------------------------------*/
   [_SYMBOL]={
-    { CS_X,    CS_C,    CS_V,    CS_Z,    CS_Y,    CS_S,    _______, _______, _______, _______, KC_HASH, KC_QUES, KC_PLUS, KC_DLR,  },
-    { S_TAB,   KC_DQUO, KC_LABK, KC_RABK, KC_PERC, _______, _______, _______, _______, _______, KC_UNDS, KC_LCBR, KC_RCBR, _______, },
-    { _______, KC_AT,   KC_CIRC, KC_EXLM, KC_ASTR, KC_GRV,  _______, _______, _______, N_ALT,   KC_LPRN, KC_RPRN, XXXXXXX, S_ENT,   },
-    { _______, XXXXXXX, KC_PWR,  KC_SLEP, KC_WAKE, _______, _______, _______, _______, _______, KC_F22,  KC_F23,  XXXXXXX, _______, },
-    { KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  XXXXXXX, XXXXXXX, KC_LCTL, KC_RALT, XXXXXXX, KC_F23,  KC_RGUI, }, },
+    { CS_X,    CS_C,    CS_V,    CS_Z,    CS_Y,    CS_S,    _______, _______, _______, _______, KC_PLUS, KC_PERC, KC_HASH, KC_DLR,  },
+    { S_TAB,   KC_DQUO, KC_LABK, KC_RABK, KC_GRV,  _______, _______, _______, _______, _______, KC_UNDS, KC_LCBR, KC_RCBR, _______, },
+    { _______, A_ALT,   O_ALT,   E_ALT,   U_ALT,   I_ALT,   _______, _______, _______, N_ALT,   KC_LPRN, KC_RPRN, XXXXXXX, S_ENT,   },
+    { _______, XXXXXXX, KC_AT,   KC_CIRC, KC_ASTR, KC_EXLM, KC_PWR,  KC_SLEP, KC_WAKE, _______, QUE_ALT, KC_QUES, XXXXXXX, _______, },
+    { KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  XXXXXXX, XXXXXXX, S_CL,    KC_F24,  XXXXXXX, KC_F23,  KC_RGUI, }, },
     /*------------------------------------------------------------------------------------------------------------------------------*/
 };
