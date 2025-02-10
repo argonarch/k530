@@ -39,16 +39,14 @@
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
 
-/* Per-key tapping term, for use with Magic FN */
-
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 //#define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 //#define LOCKING_RESYNC_ENABLE
 
 #include "config_led.h"
-#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
 #define ONESHOT_TAP_TOGGLE 5
 #define ONESHOT_TIMEOUT 5000
 
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN
