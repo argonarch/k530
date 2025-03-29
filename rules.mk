@@ -1,6 +1,7 @@
 # project specific files
 SRC = ../../../drivers/led/sn32/matrix_sn32f24xx.c
 SRC += config_led.c
+SRC += oneshot.c
 
 # MCU name
 MCU = SN32F248BF
